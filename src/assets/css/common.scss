@@ -1,0 +1,249 @@
+:root {
+  --viewport-height: 100%;
+}
+
+* {
+  font-family: sofia-pro,Roboto,Helvetica,Arial,sans-serif;
+  color: #535768;
+  font-size: $sizeFontH7;
+  outline: none;
+  outline-color: transparent;
+  -moz-outline-color: transparent;
+}
+
+*, *:after, *:before {
+  box-sizing: border-box;
+}
+
+a, a:hover, a:visited, a:active {
+  color: inherit;
+  text-decoration: none;
+}
+
+p {
+  margin: 0;
+}
+
+pre {
+  margin: 0;
+  padding: 0;
+  font-family: "NotoSansKR", "Malgun Gothic", "Apple SD Gothic Neo", "AppleGothic", serif;
+  font-size: $sizeFontH7;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.axios-loading {
+  position: fixed;
+  z-index: 9999999999999999;
+  top: calc(var(--vh, 1vh) * 50 - 20px);
+  left: calc(50vw - 20px);
+  margin: 0;
+  width: 40px;
+  height: 40px;
+  padding-bottom: 0 !important;
+}
+
+.mobile-button {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    outline: inherit;
+    height: inherit;
+    box-shadow: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.mobile-input {
+  position: relative;
+
+  input {
+    padding: 18px;
+    width: 100%;
+    border: 1px solid transparent;
+    border-bottom: 1px solid $colorPrimary;
+  }
+
+  &.full-width {
+    width: 100%;
+  }
+
+  .icon-prepend {
+    @include center-v-transform;
+    position: absolute;
+    left: 10px;
+
+    > i {
+      font-size: 20px;
+      color: $colorDarkGray;
+    }
+
+    + input {
+      padding-left: 40px;
+    }
+  }
+}
+
+.mobile-input-label {
+  & > span {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: #999999;
+  }
+
+  .mobile-input {
+    input {
+      width: 100%;
+      margin: 0;
+      padding: 10px 0;
+      border-bottom: 1px solid #999999;
+    }
+  }
+
+  select {
+    width: 100%;
+    margin: 0;
+    padding: 10px 0;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid #999999;
+  }
+
+  &.is-error {
+    .mobile-input {
+      input {
+        border-bottom: 1px solid $colorPrimary !important;
+      }
+    }
+  }
+}
+
+/**
+  mobile-select
+ */
+.mobile-select * {
+  box-sizing: border-box;
+}
+
+.mobile-select {
+  position: relative;
+  cursor: pointer;
+
+  i {
+    margin-left: 7.25px;
+  }
+}
+
+.mobile-select .label {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: inherit;
+  min-width: 118px;
+  border: 0 none;
+  outline: 0 none;
+  background: transparent;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 18px;
+  color: $colorText;
+  cursor: pointer;
+}
+
+.mobile-select .optionList {
+  position: absolute;
+  top: 28px;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: $colorWhite;
+  font-weight: 400;
+  font-size: 16px;
+  word-spacing: -1px;
+  line-height: 18px;
+  color: #454545;
+  list-style-type: none;
+  overflow: hidden;
+  max-height: 0;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  z-index: 10;
+  @include transition(max-height $aniEaseTimeDefault);
+}
+
+.mobile-select.m .label {
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.mobile-select.m .optionList {
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.mobile-select .optionList::-webkit-scrollbar {
+  width: 6px;
+}
+
+.mobile-select .optionList::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.mobile-select .optionList::-webkit-scrollbar-thumb {
+  background: #303030;
+  border-radius: 45px;
+}
+
+.mobile-select .optionList::-webkit-scrollbar-thumb:hover {
+  background: #303030;
+}
+
+.mobile-select.active .optionList {
+  max-height: 500px;
+}
+
+.mobile-select .optionItem {
+  padding: 0px 20px;
+  transition: 0.1s;
+  display: flex;
+  justify-content: center;
+}
+
+.mobile-select .optionItem:hover {
+  background: $colorWhite;
+}
+
+.mobile-select .optionItem:last-child {
+  border-bottom: 0 none;
+}
+
+.mobile-select .optionItem.active {
+  font-weight: 700;
+  max-height: 500px;
+}
+
+.mobile-select .optionItem a {
+  display: flex;
+  justify-content: start;
+  min-width: 100px;
+  height: 100%;
+  border-bottom: 1px solid #EEEEEE;
+  padding: 10px 10px;
+}
+
+.mobile-select .optionItem a .optionItem-text-wrapper {
+  text-align: left;
+}
+
+.mobile-select .optionItem .optionItem-text-wrapper span {
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+}
